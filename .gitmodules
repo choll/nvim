@@ -1,0 +1,15 @@
+[submodule "pack/nvim/start/nvim-lspconfig"]
+	path = pack/nvim/start/nvim-lspconfig
+	url = https://github.com/neovim/nvim-lspconfig
+[submodule "pack/nvim/start/clangd_extensions"]
+	path = pack/nvim/start/clangd_extensions
+	url = https://github.com/p00f/clangd_extensions.nvim
+[submodule "pack/nvim/start/vista"]
+	path = pack/nvim/start/vista
+	url = https://github.com/liuchengxu/vista.vim
+[submodule "pack/nvim/start/lightline"]
+	path = pack/nvim/start/lightline
+	url = https://github.com/itchyny/lightline.vim
+[submodule "pack/nvim/start/nvim-lsp-endhints"]
+	path = pack/nvim/start/nvim-lsp-endhints
+	url = https://github.com/chrisgrieser/nvim-lsp-endhints
