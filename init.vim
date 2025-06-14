@@ -80,15 +80,18 @@ set nowrap
 " Show line numbers
 set number
 
-" Show LSP signs in place of line numbers
+" Show LSP signs in place of line numbers instead of adding an extra column
 set signcolumn=number
 
 " nvim-lspconfig and clangd_extensions config
 lua require('lsp')
 " Load lightline (statusbar) config
 lua require('statusbar')
-" Load treesitter config
 lua require('treesitter')
+" Load gitsigns with the line number highlighted only. Replace
+" signcolumn=number above with signcolumn=yes if the gitsigns signcolumn
+" setting is enabled.
+lua require('gitsigns').setup {numhl = true, signcolumn = false}
 
 " Vista is used to display the name of the function nearest to the cursor in
 " the status bar
