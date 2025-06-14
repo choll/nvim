@@ -22,8 +22,9 @@ map <F3>   :tabnew<CR>
 " Toggle between .cpp and corresponding .hpp file
 map <F4>   :ClangdSwitchSourceHeader<CR>
 
-" Autocomplete
-inoremap <silent> <F5> <C-x><C-o>
+" Map ctrl-n to LSP omnifunc (replace basic autocomplete with omnicompletion)
+inoremap <C-n> <C-x><C-o>
+
 set completeopt=menuone,noinsert
 " Set popup menu background to dark grey and text to light grey
 highlight Pmenu guibg=#3c3836 guifg=#d4be98 ctermbg=237 ctermfg=180
@@ -49,6 +50,9 @@ autocmd BufReadPost *
   \ if line("'\"") > 0 && line("'\"") <= line("$") | 
   \   exe "normal g`\"" | 
   \ endif 
+
+" Use // comments for C++
+autocmd FileType cpp setlocal commentstring=//\ %s
 
 " Don't insert newline at EOF
 set noeol
@@ -92,6 +96,7 @@ lua require('treesitter')
 " signcolumn=number above with signcolumn=yes if the gitsigns signcolumn
 " setting is enabled.
 lua require('gitsigns').setup {numhl = true, signcolumn = false}
+lua require('Comment')
 
 " Vista is used to display the name of the function nearest to the cursor in
 " the status bar

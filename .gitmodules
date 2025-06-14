@@ -28,3 +28,6 @@
 [submodule "pack/nvim/start/gitsigns"]
 	path = pack/nvim/start/gitsigns
 	url = git@github.com:lewis6991/gitsigns.nvim.git
+[submodule "pack/nvim/start/comment"]
+	path = pack/nvim/start/comment
+	url = git@github.com:numToStr/Comment.nvim.git
