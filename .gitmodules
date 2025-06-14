@@ -37,3 +37,9 @@
 [submodule "pack/nvim/start/cmp-nvim-lsp"]
 	path = pack/nvim/start/cmp-nvim-lsp
 	url = https://github.com/hrsh7th/cmp-nvim-lsp
+[submodule "pack/colors/start/kanagawa"]
+	path = pack/colors/start/kanagawa
+	url = git@github.com:rebelot/kanagawa.nvim.git
+[submodule "pack/colors/start/cyberdream"]
+	path = pack/colors/start/cyberdream
+	url = git@github.com:scottmckendry/cyberdream.nvim.git

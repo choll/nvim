@@ -1,6 +1,6 @@
 " Put the colour scheme first so that it doesn't break spelling or menu
 " colours
-colorscheme xterm16
+colorscheme kanagawa
 
 if has("termguicolors")
   set termguicolors
