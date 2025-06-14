@@ -2,6 +2,10 @@
 " colours
 colorscheme xterm16
 
+if has("termguicolors")
+  set termguicolors
+endif
+
 " Copy the current visual selection to ~/.vbuf
 vmap <C-y> :w! ~/.vbuf<CR>
 " Copy the current line to the buffer file if no visual selection
@@ -83,6 +87,8 @@ set signcolumn=number
 lua require('lsp')
 " Load lightline (statusbar) config
 lua require('statusbar')
+" Load treesitter config
+lua require('treesitter')
 
 " Vista is used to display the name of the function nearest to the cursor in
 " the status bar

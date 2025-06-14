@@ -13,3 +13,15 @@
 [submodule "pack/nvim/start/nvim-lsp-endhints"]
 	path = pack/nvim/start/nvim-lsp-endhints
 	url = https://github.com/chrisgrieser/nvim-lsp-endhints
+[submodule "pack/nvim/start/nvim-treesitter"]
+	path = pack/nvim/start/nvim-treesitter
+	url = https://github.com/nvim-treesitter/nvim-treesitter
+[submodule "pack/colours/tender"]
+	path = pack/colors/start/tender
+	url = https://github.com/jacoborus/tender.vim
+[submodule "pack/colors/tokyonight"]
+	path = pack/colors/start/tokyonight
+	url = https://github.com/folke/tokyonight.nvim
+[submodule "pack/colors/start/vim-eldar"]
+	path = pack/colors/start/eldar
+	url = https://github.com/agude/vim-eldar
