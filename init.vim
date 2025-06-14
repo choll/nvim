@@ -89,6 +89,7 @@ set signcolumn=number
 
 " nvim-lspconfig and clangd_extensions config
 lua require('lsp')
+lua require('autocomplete')
 " Load lightline (statusbar) config
 lua require('statusbar')
 lua require('treesitter')

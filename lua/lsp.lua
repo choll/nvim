@@ -1,3 +1,6 @@
+-- Capabilities config required by nvim-cmp
+local capabilities = require('cmp_nvim_lsp').default_capabilities()
+
 require 'lspconfig'.clangd.setup {
     cmd = {'clangd', '--background-index', '--clang-tidy', '--header-insertion=iwyu'},
     filetypes = {'c', 'h', 'cpp', 'hpp'},

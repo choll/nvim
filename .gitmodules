@@ -31,3 +31,9 @@
 [submodule "pack/nvim/start/comment"]
 	path = pack/nvim/start/comment
 	url = git@github.com:numToStr/Comment.nvim.git
+[submodule "pack/nvim/start/nvim-cmp"]
+	path = pack/nvim/start/nvim-cmp
+	url = git@github.com:hrsh7th/nvim-cmp.git
+[submodule "pack/nvim/start/cmp-nvim-lsp"]
+	path = pack/nvim/start/cmp-nvim-lsp
+	url = https://github.com/hrsh7th/cmp-nvim-lsp
