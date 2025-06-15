@@ -1,7 +1,9 @@
 -- Capabilities config required by nvim-cmp
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
-require 'lspconfig'.clangd.setup {
+local lspconfig = require('lspconfig')
+
+lspconfig.clangd.setup {
     cmd = {'clangd', '--background-index', '--clang-tidy', '--header-insertion=iwyu'},
     filetypes = {'c', 'h', 'cpp', 'hpp'},
     on_attach = function(client, bufnr)
@@ -12,18 +14,33 @@ require 'lspconfig'.clangd.setup {
     end
 }
 
-require("lsp-endhints").setup {
+lspconfig.pylsp.setup({
+  settings = {
+    pylsp = {
+      plugins = {
+        pyflakes = { enabled = true },
+        rope_autoimport = { enabled = true },
+        rope_completion = { enabled = true },
+        black = { enabled = true },
+        autopep8 = { enabled = false },
+        yapf = { enabled = false },
+      }
+    }
+  }
+})
+
+require('lsp-endhints').setup {
 	icons = {
-		type = "=> ",
-		parameter = "<- ",
-		offspec = "nospec: ", -- hint kind not defined in official LSP spec
-		unknown = "unknown: ", -- hint kind is nil
+		type = '=> ',
+		parameter = '<- ',
+		offspec = 'nospec: ', -- hint kind not defined in official LSP spec
+		unknown = 'unknown: ', -- hint kind is nil
 	},
 	label = {
 		truncateAtChars = 20,
 		padding = 1,
 		marginLeft = 0,
-		sameKindSeparator = ", ",
+		sameKindSeparator = ', ',
 	},
 	extmark = {
 		priority = 50,
