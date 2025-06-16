@@ -6,7 +6,7 @@ See [pack/nvim/start](https://github.com/choll/nvim/tree/main/pack/nvim/start) f
 ## Installation
 
 ```
-git clone --recurse-submodules git@github.com:choll/nvim.git ~/.config/nvim
+git clone --recurse-submodules https://github.com/choll/nvim.git ~/.config/nvim
 ```
 
 ## Requirements

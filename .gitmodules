@@ -27,19 +27,19 @@
 	url = https://github.com/agude/vim-eldar
 [submodule "pack/nvim/start/gitsigns"]
 	path = pack/nvim/start/gitsigns
-	url = git@github.com:lewis6991/gitsigns.nvim.git
+	url = https://github.com/lewis6991/gitsigns.nvim
 [submodule "pack/nvim/start/comment"]
 	path = pack/nvim/start/comment
-	url = git@github.com:numToStr/Comment.nvim.git
+	url = https://github.com/numToStr/Comment.nvim
 [submodule "pack/nvim/start/nvim-cmp"]
 	path = pack/nvim/start/nvim-cmp
-	url = git@github.com:hrsh7th/nvim-cmp.git
+	url = https://github.com/hrsh7th/nvim-cmp
 [submodule "pack/nvim/start/cmp-nvim-lsp"]
 	path = pack/nvim/start/cmp-nvim-lsp
 	url = https://github.com/hrsh7th/cmp-nvim-lsp
 [submodule "pack/colors/start/kanagawa"]
 	path = pack/colors/start/kanagawa
-	url = git@github.com:rebelot/kanagawa.nvim.git
+	url = https://github.com/rebelot/kanagawa.nvim
 [submodule "pack/colors/start/cyberdream"]
 	path = pack/colors/start/cyberdream
-	url = git@github.com:scottmckendry/cyberdream.nvim.git
+	url = https://github.com/scottmckendry/cyberdream.nvim
