@@ -26,5 +26,5 @@ apt install python3-pylsp python3-pylsp-black python3-pylsp-rope black python3-p
 or:
 
 ```
-pip install python-lsp-server pylsp-black pylsp-rope black pyflakes jedi rope
+pip install python-lsp-server python-lsp-black pylsp-rope black pyflakes jedi rope
 ```
