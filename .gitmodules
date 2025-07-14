@@ -13,9 +13,6 @@
 [submodule "pack/nvim/start/nvim-lsp-endhints"]
 	path = pack/nvim/start/nvim-lsp-endhints
 	url = https://github.com/chrisgrieser/nvim-lsp-endhints
-[submodule "pack/nvim/start/nvim-treesitter"]
-	path = pack/nvim/start/nvim-treesitter
-	url = https://github.com/nvim-treesitter/nvim-treesitter
 [submodule "pack/colours/tender"]
 	path = pack/colors/start/tender
 	url = https://github.com/jacoborus/tender.vim

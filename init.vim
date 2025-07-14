@@ -1,6 +1,6 @@
 " Put the colour scheme first so that it doesn't break spelling or menu
 " colours
-colorscheme kanagawa
+colorscheme xterm16
 
 if has("termguicolors")
   set termguicolors
@@ -92,7 +92,6 @@ lua require('lsp')
 lua require('autocomplete')
 " Load lightline (statusbar) config
 lua require('statusbar')
-lua require('treesitter')
 " Load gitsigns with the line number highlighted only. Replace
 " signcolumn=number above with signcolumn=yes if the gitsigns signcolumn
 " setting is enabled.
