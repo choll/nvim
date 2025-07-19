@@ -87,6 +87,9 @@ set number
 " Show LSP signs in place of line numbers instead of adding an extra column
 set signcolumn=number
 
+" <> are not matched by default
+set matchpairs+=<:>
+
 " nvim-lspconfig and clangd_extensions config
 lua require('lsp')
 lua require('autocomplete')
