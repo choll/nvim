@@ -7,6 +7,8 @@ lspconfig.clangd.setup {
     cmd = {'clangd', '--background-index', '--clang-tidy', '--header-insertion=iwyu'},
     filetypes = {'c', 'h', 'cpp', 'hpp'},
     on_attach = function(client, bufnr)
+        -- Disable LSP based syntax highlighting
+        client.server_capabilities.semanticTokensProvider = nil
     end
 }
 
