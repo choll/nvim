@@ -20,10 +20,7 @@ map <F2>   :tabn<CR>
 " Create tab
 map <F3>   :tabnew<CR>
 " Toggle between .cpp and corresponding .hpp file
-map <F4>   :ClangdSwitchSourceHeader<CR>
-
-" Map ctrl-n to LSP omnifunc (replace basic autocomplete with omnicompletion)
-inoremap <C-n> <C-x><C-o>
+map <F4>   :LspClangdSwitchSourceHeader<CR>
 
 set completeopt=menuone,noinsert
 " Set popup menu background to dark grey and text to light grey
@@ -38,10 +35,10 @@ hi clear SpellBad
 hi clear SpellCap
 hi clear SpellRare
 hi clear SpellLocal
-hi SpellBad cterm=underline
-hi SpellCap cterm=underline
-hi SpellRare cterm=underline
-hi SpellLocal cterm=underline
+hi SpellBad cterm=underline gui=underline
+hi SpellCap cterm=underline gui=underline
+hi SpellRare cterm=underline gui=underline
+hi SpellLocal cterm=underline gui=underline
 
 " When editing a file, always jump to the last known cursor position. 
 " Don't do it when the position is invalid or when inside an event handler 
@@ -54,11 +51,10 @@ autocmd BufReadPost *
 " Use // comments for C++
 autocmd FileType cpp setlocal commentstring=//\ %s
 
-" Don't insert newline at EOF
-set noeol
-
 " Highlight trailing spaces
 let c_space_errors = 1
+
+let c_no_bracket_error = 1
 
 set mouse=a
 " Right click extends the selection instead of opening a menu
@@ -90,17 +86,12 @@ set signcolumn=number
 " <> are not matched by default
 set matchpairs+=<:>
 
-" nvim-lspconfig and clangd_extensions config
+" LSP server config
 lua require('lsp')
 lua require('autocomplete')
-" Load lightline (statusbar) config
+" Load lightline (statusbar) config, including the nearest function component
 lua require('statusbar')
 " Load gitsigns with the line number highlighted only. Replace
 " signcolumn=number above with signcolumn=yes if the gitsigns signcolumn
 " setting is enabled.
 lua require('gitsigns').setup {numhl = true, signcolumn = false}
-lua require('Comment')
-
-" Vista is used to display the name of the function nearest to the cursor in
-" the status bar
-source ~/.config/nvim/vista.vim

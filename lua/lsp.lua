@@ -1,18 +1,32 @@
--- Capabilities config required by nvim-cmp
-local capabilities = require('cmp_nvim_lsp').default_capabilities()
+-- Servers are configured with the built-in vim.lsp.config/vim.lsp.enable API
+-- (nvim 0.11+). The nvim-lspconfig submodule is no longer require()d; it is
+-- kept only for the server definitions it ships in its lsp/ directory, which
+-- nvim picks up off the runtimepath. Precedence is:
+--     vim.lsp.config('*')  <  lsp/<name>.lua  <  vim.lsp.config('<name>')
+-- Tables are merged deeply, but list values (cmd, filetypes) are replaced.
 
-local lspconfig = require('lspconfig')
+-- Capabilities config required by nvim-cmp, applied to every server
+vim.lsp.config('*', {
+    capabilities = require('cmp_nvim_lsp').default_capabilities(),
+})
 
-lspconfig.clangd.setup {
-    cmd = {'clangd', '--background-index', '--clang-tidy', '--header-insertion=iwyu'},
+-- No on_attach here: overriding it would replace the one from lspconfig's
+-- lsp/clangd.lua, which is what defines :LspClangdSwitchSourceHeader (mapped to
+-- <F4>) and :LspClangdShowSymbolInfo.
+vim.lsp.config('clangd', {
+    cmd = {
+        'clangd',
+        '--background-index',
+        '--clang-tidy',
+        '--header-insertion=iwyu',
+        -- Complete function calls with empty parens rather than placeholders
+        -- for each argument
+        '--function-arg-placeholders=0',
+    },
     filetypes = {'c', 'h', 'cpp', 'hpp'},
-    on_attach = function(client, bufnr)
-        -- Disable LSP based syntax highlighting
-        client.server_capabilities.semanticTokensProvider = nil
-    end
-}
+})
 
-lspconfig.pylsp.setup({
+vim.lsp.config('pylsp', {
     settings = {
         pylsp = {
             plugins = {
@@ -26,6 +40,12 @@ lspconfig.pylsp.setup({
         }
     }
 })
+
+vim.lsp.enable({'clangd', 'pylsp'})
+
+-- Disable LSP based syntax highlighting for every server, the regex syntax
+-- files are used instead
+vim.lsp.semantic_tokens.enable(false)
 
 require('lsp-endhints').setup {
 	icons = {
