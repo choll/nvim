@@ -6,6 +6,15 @@ if has("termguicolors")
   set termguicolors
 endif
 
+nnoremap <Find>   <Home>
+nnoremap <Select> <End>
+vnoremap <Find>   <Home>
+vnoremap <Select> <End>
+inoremap <Find>   <Home>
+inoremap <Select> <End>
+cnoremap <Find>   <Home>
+cnoremap <Select> <End>
+
 " Copy the current visual selection to ~/.vbuf
 vmap <C-y> :w! ~/.vbuf<CR>
 " Copy the current line to the buffer file if no visual selection
