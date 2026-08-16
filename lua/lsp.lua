@@ -23,7 +23,6 @@ vim.lsp.config('clangd', {
         -- for each argument
         '--function-arg-placeholders=0',
     },
-    filetypes = {'c', 'h', 'cpp', 'hpp'},
 })
 
 vim.lsp.config('pylsp', {
