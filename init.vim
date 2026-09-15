@@ -30,13 +30,13 @@ nmap <C-y> :.w! ~/.vbuf<CR>
 nmap <C-p> :r ~/.vbuf<CR>
 
 " Previous tab
-map <F1>   :tabp<CR>
+nnoremap <F1>   :tabp<CR>
 " Next tab
-map <F2>   :tabn<CR>
+nnoremap <F2>   :tabn<CR>
 " Create tab
-map <F3>   :tabnew<CR>
+nnoremap <F3>   :tabnew<CR>
 " Toggle between .cpp and corresponding .hpp file
-map <F4>   :LspClangdSwitchSourceHeader<CR>
+nnoremap <F4>   :LspClangdSwitchSourceHeader<CR>
 
 set completeopt=menuone,noinsert
 " Set popup menu background to dark grey and text to light grey
@@ -67,16 +67,16 @@ hi SpellCap cterm=underline gui=underline
 hi SpellRare cterm=underline gui=underline
 hi SpellLocal cterm=underline gui=underline
 
-" When editing a file, always jump to the last known cursor position. 
-" Don't do it when the position is invalid or when inside an event handler 
-" (happens when dropping a file on gvim). 
-autocmd BufReadPost * 
-  \ if line("'\"") > 0 && line("'\"") <= line("$") | 
-  \   exe "normal g`\"" | 
-  \ endif 
-
-" Use // comments for C++
-autocmd FileType cpp setlocal commentstring=//\ %s
+" When editing a file, always jump to the last known cursor position.
+" Don't do it when the position is invalid or when inside an event handler
+" (happens when dropping a file on gvim).
+augroup vimrc
+  autocmd!
+  autocmd BufReadPost *
+    \ if line("'\"") > 0 && line("'\"") <= line("$") |
+    \   exe "normal g`\"" |
+    \ endif
+augroup END
 
 " Highlight trailing spaces
 let c_space_errors = 1
@@ -97,6 +97,24 @@ set softtabstop=4
 
 " Detect changes made to files by other programs
 set autoread
+
+" Keep undo history on disk so it survives closing the file or restarting
+set undofile
+
+" Case-insensitive search unless the pattern contains a capital
+set ignorecase smartcase
+
+" :grep searches the git-tracked files under the working directory (the
+" default only searches the files named on the command line), and opens the
+" results
+set grepprg=git\ grep\ -n\ $*
+" Run it silently so the raw output and its "Press ENTER" prompt are not
+" shown, and with ! so it doesn't jump to the first match before the list opens
+cnoreabbrev <expr> grep getcmdtype() ==# ':' && getcmdline() ==# 'grep' ? 'silent grep!' : 'grep'
+augroup grep
+  autocmd!
+  autocmd QuickFixCmdPost grep copen
+augroup END
 
 " Visual selection does not include the cursor
 set selection=exclusive
@@ -122,3 +140,6 @@ lua require('statusbar')
 " signcolumn=number above with signcolumn=yes if the gitsigns signcolumn
 " setting is enabled.
 lua require('gitsigns').setup {numhl = true, signcolumn = false}
+" Git blame for the current line (popup) and the whole file (side window)
+nnoremap <space>gb <Cmd>Gitsigns blame_line<CR>
+nnoremap <space>gB <Cmd>Gitsigns blame<CR>

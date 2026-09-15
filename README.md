@@ -11,6 +11,8 @@ git clone --recurse-submodules https://github.com/choll/nvim.git ~/.config/nvim
 
 ## Requirements
 
+Neovim 0.12 or later.
+
 ### C++
 
 ```
