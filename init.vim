@@ -116,6 +116,11 @@ augroup grep
   autocmd QuickFixCmdPost grep copen
 augroup END
 
+" :find searches every directory below the working one, not just the current
+set path+=**
+" ...but skips submodules and build output, which would otherwise dominate it
+set wildignore+=*/pack/*,*/build/*,*/.git/*
+
 " Visual selection does not include the cursor
 set selection=exclusive
 
