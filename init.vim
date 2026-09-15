@@ -44,6 +44,17 @@ highlight Pmenu guibg=#3c3836 guifg=#d4be98 ctermbg=237 ctermfg=180
 " Set selected item background to blue and text to white
 highlight PmenuSel guibg=#458588 guifg=#ffffff ctermbg=66 ctermfg=15
 
+" Words added with zg go into the repo rather than ~/.local/share
+set spellfile=~/.config/nvim/spell/en.utf-8.add
+" The compiled .spl is not committed, and vim only rebuilds it for zg, so
+" rebuild it here when it is missing or the word list has been edited by hand
+for s:add in glob('~/.config/nvim/spell/*.add', 1, 1)
+  if !filereadable(s:add . '.spl') || getftime(s:add) > getftime(s:add . '.spl')
+    execute 'silent mkspell!' fnameescape(s:add)
+  endif
+endfor
+" Split camelCase identifiers into words before checking them
+set spelloptions=camel
 " Turn on spell checking
 set spell spelllang=en_gb
 " Underline misspelt words
