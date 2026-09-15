@@ -1,7 +1,7 @@
 # NeoVim Config
 
 NeoVim config for C++ and Python without package managers or Node.js.
-See [pack/nvim/start](https://github.com/choll/nvim/tree/main/pack/nvim/start) for installed plugins.
+See [pack/nvim/start](https://github.com/choll/nvim/tree/master/pack/nvim/start) for installed plugins.
 
 ## Installation
 
