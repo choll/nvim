@@ -15,6 +15,13 @@ inoremap <Select> <End>
 cnoremap <Find>   <Home>
 cnoremap <Select> <End>
 
+" In the command-line completion menu, scroll matches with up/down and change
+" directory with left/right (the defaults are the other way round)
+cnoremap <expr> <Up>    wildmenumode() ? "\<Left>"  : "\<Up>"
+cnoremap <expr> <Down>  wildmenumode() ? "\<Right>" : "\<Down>"
+cnoremap <expr> <Left>  wildmenumode() ? "\<Up>"    : "\<Left>"
+cnoremap <expr> <Right> wildmenumode() ? "\<Down>"  : "\<Right>"
+
 " Copy the current visual selection to ~/.vbuf
 vmap <C-y> :w! ~/.vbuf<CR>
 " Copy the current line to the buffer file if no visual selection
