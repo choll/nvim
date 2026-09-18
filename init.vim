@@ -145,6 +145,7 @@ lua require('statusbar')
 " signcolumn=number above with signcolumn=yes if the gitsigns signcolumn
 " setting is enabled.
 lua require('gitsigns').setup {numhl = true, signcolumn = false}
-" Git blame for the current line (popup) and the whole file (side window)
+" Git blame for the current line (popup) and the whole file (side window,
+" toggled; see lua/gitblame.lua)
 nnoremap <space>gb <Cmd>Gitsigns blame_line<CR>
-nnoremap <space>gB <Cmd>Gitsigns blame<CR>
+nnoremap <space>gB <Cmd>lua require("gitblame").toggle()<CR>
